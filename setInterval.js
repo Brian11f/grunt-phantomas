@@ -9,7 +9,7 @@ var run = function(what, where) {
   // by default, just run grunt
   what = what || 'grunt phantomas'
   // by default, run on grunt in the current working directory
-  where = path.resolve(where || path.join(process.cwd(), 'Gruntfile.coffee'))
+  where = path.resolve(where || path.join(process.cwd(), 'Gruntfile.js'))
 
   what += ' --gruntfile=' + where
   exec(what, { cwd: path.dirname(where) }, function(err, stdout, stderr) {
@@ -23,4 +23,4 @@ var run = function(what, where) {
 setInterval(function() {
   run(/* set what to run, where to run */)
   /* or even multiple gruntfiles and node projects */
-}, 24 * 60 * 60 * 1000) // once a day
+}, 72 * 60 * 60 * 1000) // once a day
