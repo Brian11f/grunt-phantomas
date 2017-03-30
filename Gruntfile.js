@@ -226,7 +226,41 @@ module.exports = function( grunt ) {
         },
         tasks   : [ 'compass', 'copy:styles' ]
       }
+    },
+
+
+    yellowlabtools: {
+      production: {
+        urls: [
+          'http://www.zumiez.com/',
+          'http://www.zumiez.com/shoes/shoes/skate.html',
+          'http://www.zumiez.com/shortys-lil-1-skateboard-hardware.html'
+        ],
+        failConditions: [
+          // The global score is the one calculated by Yellow Lab Tools
+          'fail if at least one url has a global score < 80/100',
+
+          // Every single rule has its own score
+          'fail if at least one url has a rule score < 50/100',
+
+          // You can be more demanding on a scpecific rule
+          'fail if at least one url has a domElementsCount score < 100/100',
+
+          // Or you can decide to be cooler on a specific rule
+          'fail if at least one url has a domMaxDepth score < 20/100',
+
+          // ... coolest
+          'ignore iframesCount',
+
+          // For each rule, you can check directly the metric instead of the score by omitting '/100'
+          'fail if at least one url has a domElementsCount > 2000'
+        ],
+        options: {
+          device: 'phone'
+        }
+      }
     }
+
   } );
 
   // Actually load this plugin's task(s).
@@ -241,6 +275,7 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks( 'grunt-contrib-nodeunit' );
   grunt.loadNpmTasks( 'grunt-contrib-uglify' );
   grunt.loadNpmTasks( 'grunt-contrib-watch' );
+  grunt.loadNpmTasks( 'grunt-yellowlabtools' );
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
@@ -251,5 +286,8 @@ module.exports = function( grunt ) {
 
   // Set up development environment
   grunt.registerTask( 'build', [ 'compass', 'uglify', 'phantomas' ] );
+
+  // Set up development environment
+  grunt.registerTask( 'speedTest', [ 'phantomas', 'yellowlabtools' ] );
 
 };
