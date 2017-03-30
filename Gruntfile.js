@@ -89,8 +89,8 @@ module.exports = function( grunt ) {
 
 
     phantomas : {
-      /* https://github.com/stefanjudis/grunt-phantomas */
-      grunt : {
+      /* Home Page */
+      zumiezHome : {
         options : {
           assertions : {
             'assetsWithQueryString' : 3,
@@ -115,11 +115,75 @@ module.exports = function( grunt ) {
           // buildUi              : false,
           // output               : 'json',
           // limitIncludedRuns    : false,
-          indexPath            : './phantomas/',
+          indexPath            : './zumiez-home/',
           options              : {
             'timeout'        : 30
           },
-          url                  : 'http://gruntjs.com/'
+          url                  : 'http://www.zumiez.com/'
+        }
+      },
+      zumiezCat : {
+        options : {
+          assertions : {
+            'assetsWithQueryString' : 3,
+            'biggestLatency'        : 1400,
+            'bodyHTMLSize'          : 10500,
+            'commentsSize'          : 55,
+            'consoleMessages'       : 0,
+            'hiddenContentSize'     : 65,
+            'jsErrors'              : 0,
+            'gzipRequests'          : {
+              'type'  : '<',
+              'value' : 8
+            },
+            'medianResponse'        : 400,
+            'nodesWithInlineCSS'    : 0,
+            'requests'              : 30,
+            'timeToFirstImage'      : 1100,
+            'DOMelementsCount'      : 200,
+            'DOMqueries'            : 10
+          },
+          // additionalStylesheet : '/Users/stefan/Desktop/custom2.css',
+          // buildUi              : false,
+          // output               : 'json',
+          // limitIncludedRuns    : false,
+          indexPath            : './zumiez-cat/',
+          options              : {
+            'timeout'        : 30
+          },
+          url                  : 'http://www.zumiez.com/shoes/shoes/skate.html'
+        }
+      },
+      zumiezPdp : {
+        options : {
+          assertions : {
+            'assetsWithQueryString' : 3,
+            'biggestLatency'        : 1400,
+            'bodyHTMLSize'          : 10500,
+            'commentsSize'          : 55,
+            'consoleMessages'       : 0,
+            'hiddenContentSize'     : 65,
+            'jsErrors'              : 0,
+            'gzipRequests'          : {
+              'type'  : '<',
+              'value' : 8
+            },
+            'medianResponse'        : 400,
+            'nodesWithInlineCSS'    : 0,
+            'requests'              : 30,
+            'timeToFirstImage'      : 1100,
+            'DOMelementsCount'      : 200,
+            'DOMqueries'            : 10
+          },
+          // additionalStylesheet : '/Users/stefan/Desktop/custom2.css',
+          // buildUi              : false,
+          // output               : 'json',
+          // limitIncludedRuns    : false,
+          indexPath            : './zumiez-pdp/',
+          options              : {
+            'timeout'        : 30
+          },
+          url                  : 'http://www.zumiez.com/shortys-lil-1-skateboard-hardware.html'
         }
       }
     },
