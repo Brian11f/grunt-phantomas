@@ -23,4 +23,4 @@ var run = function(what, where) {
 setInterval(function() {
   run(/* set what to run, where to run */)
   /* or even multiple gruntfiles and node projects */
-}, 72 * 60 * 60 * 1000) // once a day
+}, 1 * 60 * 60 * 12000) // once a hour
